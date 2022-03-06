@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+
+<!--
+    Document   : SIPA.xml
+    Author     : Claudiu Buduleci
+    Description: 
+		This is the input file for the Sniper Simulator
+
+	NOTE:
+		Before start the simulation, please verify the following parameters:
+			- simulator_folder;
+			- simulator_executable;
+			- simulator_opt;
+			- simulator_final_results;
+			- output_path
+-->
+
+<design_space>
+
+    <simulator name="ServerSimulator" type="simulator" >
+		<!-- Path to simulator folder -->
+        <parameter name="simulator_folder" value="d:\Github\sipa-fadse\" />
+		<!-- Path to simulator executable -->	
+        <parameter name="simulator_executable" value="run_sipa_model.m" />
+		<!-- Name of a simulator -->
+        <parameter name="realSimulator" value = "SipaSimulator" />
+		<!-- Maximum time of a simulation (In minutes) -->
+        <parameter name="maximumTimeOfASimulation" value="10" />
+        <!-- Path to the partial results -->
+        <parameter name="simulator_opt" value="d:\Github\sipa-fadse\outputs\simulator_opt\opt#\" />
+        <!-- Path to the final results -->
+        <parameter name="simulator_final_results" value="d:\Github\sipa-fadse\outputs\final_results\output_#" />
+		<!-- console output file -->
+        <parameter name="console_output" value="console.out" />
+  		<parameter name="forceMinimumPercentageFeasibleIndividuals" value="10"/>
+  		<parameter name="forceFeasibleFirstGeneration" value="true"/>
+    </simulator>
+	
+    <database ip="127.0.0.1" port="3306" name="fadse" user="root" password="i-am-root" />
+	
+    <benchmarks>
+		<item name="sipa-model"/>
+    </benchmarks>
+	
+    <metaheuristic name="NSGAII" config_path="nsgaii.properties" />
+	
+    <parameters>
+        <parameter name="param_1" description="First parameter" type="float" min="0" max="1" step="0.0001" />
+		<parameter name="param_2" description="Second parameter" type="float" min="0" max="1" step="0.0001" />
+    </parameters>
+	
+    <system_metrics>
+    	<system_metric name="performance" type="float" desired="small" />
+    </system_metrics>
+	
+    <rules></rules>
+    <relations></relations>
+    
+    <output output_path="d:\Github\sipa-fadse\outputs\" />
+</design_space>

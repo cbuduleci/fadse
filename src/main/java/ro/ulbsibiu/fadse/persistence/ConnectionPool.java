@@ -10,6 +10,7 @@ package ro.ulbsibiu.fadse.persistence;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.concurrent.Semaphore;
 
@@ -17,8 +18,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import ro.ulbsibiu.fadse.environment.document.InputDocument;
-
-import com.mysql.jdbc.PreparedStatement;
 
 /**
  * ConnectionPool verwaltet die Datenbankverbindungen, die nicht über SPRING

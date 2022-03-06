@@ -14,7 +14,7 @@ import ro.ulbsibiu.fadse.shared.statemachine.StateMachine;
 /**
  * Klasse f�r den Zugriff auf eine MySQL-DB
  */
-public class DatabaseConnector extends StateMachine {
+public class DatabaseConnector {
 
     public static final String STATE_OFFLINE = "Offline";
     public static final String STATE_ONLINE = "Online";
@@ -41,18 +41,25 @@ public class DatabaseConnector extends StateMachine {
             log.debug("######################  MysqlDatenspeicher erzeugen");
         }
 
-        setState(STATE_OFFLINE);
-        Class.forName("com.mysql.jdbc.Driver").newInstance();
+//        setState(STATE_OFFLINE);
+ 
+        try {
+            // The newInstance() call is a work around for some
+            // broken Java implementations
+            Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
+        } catch (Exception ex) {
+            System.out.println("Buba!");
+        }
     }
 
     /** Aufbauen einer DB-Verbindung */
     public void connect() throws InterruptedException, SQLException, StateException {
-        assertState(STATE_OFFLINE);
+//        assertState(STATE_OFFLINE);
 
         con = ConnectionPool.getInstance().getItem();
         stmt = con.createStatement();
 
-        setState(STATE_ONLINE);
+//        setState(STATE_ONLINE);
     }
 
     /** Herausgeben einer Connection nach Draußen */
@@ -65,7 +72,7 @@ public class DatabaseConnector extends StateMachine {
      * @throws zugang.hardware.DatenSpeicherException
      */
     public void disconnect() throws StateException, SQLException {
-        assertState(STATE_ONLINE);
+//        assertState(STATE_ONLINE);
 
         try {
             if (rs != null) {
@@ -89,7 +96,7 @@ public class DatabaseConnector extends StateMachine {
             if (log.isDebugEnabled()) {
                 log.debug("Disconnect beendet...");
             }
-            setState(STATE_OFFLINE);
+//            setState(STATE_OFFLINE);
         }
     }
 

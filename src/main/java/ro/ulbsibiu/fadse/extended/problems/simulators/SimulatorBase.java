@@ -70,7 +70,7 @@ public abstract class SimulatorBase extends SimulatorWrapper {
     /**
      * set simulator output file
      */
-    public void setSimulatorOutputFile(String value) {
+	public void setSimulatorOutputFile(String value) {
         this.simulatorOutputFile = value;
     }
 // </editor-fold>
