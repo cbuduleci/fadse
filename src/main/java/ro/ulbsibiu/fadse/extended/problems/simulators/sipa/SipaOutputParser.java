@@ -80,7 +80,7 @@ public class SipaOutputParser extends SimulatorOutputParser {
 
         for (Objective obj : this.currentObjectives) {
             String key = obj.getName();
-            Double result = getSimpleObjectives().get(key);   
+            Double result = 1.0f + getSimpleObjectives().get(key);   
             
 //            fixed by setting big in objective configuration
 //            if(key.contains("mean_z") || (key.contains("F_per_mv"))){

@@ -70,19 +70,19 @@ Specify path to input XML
 C:\Users\Horia\Documents\My Dropbox\joint work\Towards Adaptive Code-Optimization\results of adaptive optimization for GAP\1 Benchmark HW+SW\combination_9bench_hwsw_1.xml
  */
         String folderPath;
-        int nrOfobejctives = 2;
-        int populationSize = 100;
+        int nrOfobejctives = 1;
+        int populationSize = 50;
         String pathToInputXML;
         if (args.length < 3) {
             System.out.println("Specify path to folder");
-            folderPath = (new BufferedReader(new InputStreamReader(System.in))).readLine();
-//            folderPath = "D:\\Work\\Doctorat\\Output\\FADSE\\ServerSimulator\\MOCHC Scoala\\1345563456000";
+//            folderPath = (new BufferedReader(new InputStreamReader(System.in))).readLine();
+            folderPath = "d:\\Github\\sipa-fadse\\outputs\\";
             System.out.println("Specify nr of objectives");
-            nrOfobejctives = 2;//Integer.parseInt((new BufferedReader(new InputStreamReader(System.in))).readLine());
+            nrOfobejctives = 1;//Integer.parseInt((new BufferedReader(new InputStreamReader(System.in))).readLine());
             System.out.println("Specify the population size");
-            populationSize = 100;//Integer.parseInt((new BufferedReader(new InputStreamReader(System.in))).readLine());
+            populationSize = 50;//Integer.parseInt((new BufferedReader(new InputStreamReader(System.in))).readLine());
             System.out.println("Specify path to input XML");
-            pathToInputXML = "D:\\Work\\Doctorat\\FADSE\\configs\\gapdistsimin_radu.xml";//(new BufferedReader(new InputStreamReader(System.in))).readLine();
+            pathToInputXML = "d:\\Github\\sipa-fadse\\fadse\\configs\\designSpace\\sipa.xml";//(new BufferedReader(new InputStreamReader(System.in))).readLine();
            // pathToInputXML = "C:\\Users\\Horia\\Documents\\My Dropbox\\joint work\\Towards Adaptive Code-Optimization\\results of adaptive optimization for GAP\\1 Benchmark HW+SW\\combination_9bench_hwsw_1.xml";
         } else {
             folderPath = args[0];
