@@ -20,9 +20,9 @@
 
     <simulator name="ServerSimulator" type="simulator" >
 		<!-- Path to simulator folder -->
-        <parameter name="simulator_folder" value="d:\Github\sipa-fadse\" />
+        <parameter name="simulator_folder" value="d:\Github\sipa-fadse\model\" />
 		<!-- Path to simulator executable -->	
-        <parameter name="simulator_executable" value="run_sipa_model.m" />
+        <parameter name="simulator_executable" value="PROJ___AYC_018_AYC_A1_SIPA___00237.mat" />
 		<!-- Name of a simulator -->
         <parameter name="realSimulator" value = "SipaSimulator" />
 		<!-- Maximum time of a simulation (In minutes) -->
@@ -33,7 +33,7 @@
         <parameter name="simulator_final_results" value="d:\Github\sipa-fadse\outputs\final_results\output_#" />
 		<!-- console output file -->
         <parameter name="console_output" value="console.out" />
-  		<parameter name="forceMinimumPercentageFeasibleIndividuals" value="10"/>
+  		<parameter name="forceMinimumPercentageFeasibleIndividuals" value="100"/>
   		<parameter name="forceFeasibleFirstGeneration" value="true"/>
     </simulator>
 	

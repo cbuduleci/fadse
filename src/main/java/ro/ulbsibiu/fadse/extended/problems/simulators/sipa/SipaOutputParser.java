@@ -20,10 +20,6 @@ import ro.ulbsibiu.fadse.environment.Objective;
 import ro.ulbsibiu.fadse.extended.problems.simulators.SimulatorBase;
 import ro.ulbsibiu.fadse.extended.problems.simulators.SimulatorOutputParser;
 
-/**
- *
- * @author Radu
- */
 public class SipaOutputParser extends SimulatorOutputParser {
 
     /**
@@ -41,14 +37,13 @@ public class SipaOutputParser extends SimulatorOutputParser {
      * @return
      */
     @Override
-    public LinkedList<Objective> getResults(Individual individual) {
+	public LinkedList<Objective> getResults(Individual individual) {
         
     	File benchmarkDirectory = new File(simulator.getSimulatorOutputFile() + "_" + individual.getBenchmark());
-    	
-
-        File results = new File(benchmarkDirectory.getAbsolutePath() + "\\results_final.txt");
-        
+        File results = new File(benchmarkDirectory.getAbsolutePath() + "\\results_final.txt");  
         FileWriter fw = null;
+        
+        System.out.println(benchmarkDirectory.getAbsolutePath() + "\\results_final.txt");
         
         try {
             results.createNewFile();
@@ -60,7 +55,6 @@ public class SipaOutputParser extends SimulatorOutputParser {
                 try {
                 	byte[] encoded = Files.readAllBytes(Paths.get(benchmarkDirectory + "\\" + outputfile + ".txt"));
                 	value = new String(encoded, Charset.defaultCharset());
-                    //value = FileUtils.readStringFromFile();
                     fw.write(outputfile + "=" + value.trim() + "\n");
                 } catch (Exception ex) {
                     Logger.getLogger(SipaOutputParser.class.getName()).log(Level.SEVERE, null, ex);
